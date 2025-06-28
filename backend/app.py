@@ -8,3 +8,5 @@ app.register_blueprint(predict_bp, url_prefix="/api")
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
+
+
