@@ -249,15 +249,13 @@ st.set_page_config(page_title="🏠 Real Estate Dashboard", layout="wide")
 
 
 # Debug: Show working directory and files
-st.write("Working Directory:", os.getcwd())
-st.write("Files:", os.listdir())
-
-# Load YAML config safely
 try:
     with open("config.yaml") as file:
         config = yaml.load(file, Loader=SafeLoader)
-except FileNotFoundError:
-    st.error("❌ 'config.yaml' not found. Please make sure it's in the same folder as app.py.")
+        st.write("✅ config.yaml loaded successfully.")
+        st.write(config)
+except Exception as e:
+    st.error(f"❌ Error loading config.yaml: {e}")
     st.stop()
 
 # Setup Authenticator
