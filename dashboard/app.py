@@ -233,38 +233,38 @@ API_URL = os.getenv("FLASK_API_URL")
 st.set_page_config(page_title="🏠 Real Estate Dashboard", layout="wide")
 
 # ------------------ Load YAML Auth Config ------------------
-# try:
-#     with open("config.yaml") as file:
-#         config = yaml.load(file, Loader=SafeLoader)
-# except FileNotFoundError:
-#     st.error("❌ 'config.yaml' not found. Please upload it to the same folder as app.py.")
-#     st.stop()
-
-# authenticator = stauth.Authenticate(
-#     config["credentials"],
-#     config["cookie"]["name"],
-#     config["cookie"]["key"],
-#     config["cookie"]["expiry_days"]
-# )
-
-
-# Debug: Show working directory and files
 try:
     with open("config.yaml") as file:
         config = yaml.load(file, Loader=SafeLoader)
-        st.write("✅ config.yaml loaded successfully.")
-        st.write(config)
-except Exception as e:
-    st.error(f"❌ Error loading config.yaml: {e}")
+except FileNotFoundError:
+    st.error("❌ 'config.yaml' not found. Please upload it to the same folder as app.py.")
     st.stop()
 
-# Setup Authenticator
 authenticator = stauth.Authenticate(
     config["credentials"],
     config["cookie"]["name"],
     config["cookie"]["key"],
     config["cookie"]["expiry_days"]
 )
+
+
+# # Debug: Show working directory and files
+# try:
+#     with open("config.yaml") as file:
+#         config = yaml.load(file, Loader=SafeLoader)
+#         st.write("✅ config.yaml loaded successfully.")
+#         st.write(config)
+# except Exception as e:
+#     st.error(f"❌ Error loading config.yaml: {e}")
+#     st.stop()
+
+# # Setup Authenticator
+# authenticator = stauth.Authenticate(
+#     config["credentials"],
+#     config["cookie"]["name"],
+#     config["cookie"]["key"],
+#     config["cookie"]["expiry_days"]
+# )
 
 # ------------------ Login Interface ------------------
 authenticator.login(location="sidebar")
