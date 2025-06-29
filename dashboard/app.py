@@ -29,25 +29,6 @@ authenticator = stauth.Authenticate(
     config["cookie"]["expiry_days"]
 )
 
-
-# # Debug: Show working directory and files
-# try:
-#     with open("config.yaml") as file:
-#         config = yaml.load(file, Loader=SafeLoader)
-#         st.write("✅ config.yaml loaded successfully.")
-#         st.write(config)
-# except Exception as e:
-#     st.error(f"❌ Error loading config.yaml: {e}")
-#     st.stop()
-
-# # Setup Authenticator
-# authenticator = stauth.Authenticate(
-#     config["credentials"],
-#     config["cookie"]["name"],
-#     config["cookie"]["key"],
-#     config["cookie"]["expiry_days"]
-# )
-
 # ------------------ Login Interface ------------------
 authenticator.login(location="sidebar")
 
