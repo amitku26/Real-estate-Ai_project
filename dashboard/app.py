@@ -16,7 +16,8 @@ st.set_page_config(page_title="🏠 Real Estate Dashboard", layout="wide")
 
 # ------------------ Load YAML Auth Config ------------------
 try:
-    with open("config.yaml") as file:
+    # with open("config.yaml") as file:
+    with open(r"C:\Real estate Ai_project\dashboard\config.yaml") as file:
         config = yaml.load(file, Loader=SafeLoader)
 except FileNotFoundError:
     st.error("❌ 'config.yaml' not found. Please upload it to the same folder as app.py.")
