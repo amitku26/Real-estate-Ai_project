@@ -28,7 +28,7 @@ CORS(app)  # Enable CORS for cross-origin access
 
 # Load the trained model
 try:
-    with open("model/model.pkl", "rb") as f:
+    with open("model.pkl", "rb") as f:
         model = pickle.load(f)
 except FileNotFoundError:
     raise RuntimeError("❌ model.pkl not found! Please place it in the backend folder.")
