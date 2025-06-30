@@ -1,15 +1,11 @@
 streamlit
 streamlit-authenticator==0.3.1
 python-dotenv
-# pyyaml
 requests
 PyYAML
 streamlit
 pyyaml
 streamlit-authenticator
-# streamlit
-# streamlit-authenticator==0.3.1
 python-dotenv
-# pyyaml
 requests
 PyYAML
