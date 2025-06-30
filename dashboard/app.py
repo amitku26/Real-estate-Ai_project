@@ -1,11 +1,12 @@
+import os
 import streamlit as st
 import requests
 import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
 import streamlit.components.v1 as components
-import os
 from dotenv import load_dotenv
+
 
 # ------------------ Load .env Variables ------------------
 load_dotenv()
@@ -16,8 +17,8 @@ st.set_page_config(page_title="🏠 Real Estate Dashboard", layout="wide")
 
 # ------------------ Load YAML Auth Config ------------------
 try:
-    # with open("config.yaml") as file:
-    with open(r"C:\Real estate Ai_project\dashboard\config.yaml") as file:
+    with open("config.yaml") as file:
+    # with open(r"C:\Real estate Ai_project\dashboard\config.yaml") as file:
         config = yaml.load(file, Loader=SafeLoader)
 except FileNotFoundError:
     st.error("❌ 'config.yaml' not found. Please upload it to the same folder as app.py.")
@@ -132,4 +133,3 @@ elif st.session_state.get("authentication_status") is False:
     st.error("❌ Incorrect username or password")
 elif st.session_state.get("authentication_status") is None:
     st.warning("🛡️ Please enter your login credentials")
-
